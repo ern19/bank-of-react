@@ -9,9 +9,11 @@ class Home extends Component {
           <h1>Bank of React</h1>
           <Link to="/user">User Page</Link><br />
 
-          <Link to="/account">View balance</Link>
+          <Link to="/account">View balance</Link><br />
 
-          <Link to="/accounts/debits">View charges</Link>
+          <Link to="/account/debits">View charges</Link><br />
+
+          <Link to="/account/credits">View credits</Link><br />
             
         </div>
     );
