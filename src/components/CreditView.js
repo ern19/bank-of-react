@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import CreditsList from "./CreditsList"
 import AccountBalance from "./AccountBalance"
+import CreditForm from "./CreditForm"
 
 class CreditView extends Component {
     render() {
         return (
             <div>
                 <h1>Credits</h1>
+                <CreditForm addCreditToCreditList={this.props.addCreditToCreditList}/>
                 <CreditsList   
         getCredits={this.getCredits}
         getDebits={this.getDebits}

@@ -21,6 +21,7 @@ class App extends Component {
       totalDebits: 0,
       totalCredits: 0,
     
+    
   }
   saveSomething = () => {
       console.log("clicked")
@@ -60,7 +61,17 @@ class App extends Component {
       })
     
   }
-
+  
+  addDebitToDebitList = (newDebit) => {
+    const newDebitList = [...this.state.debits]
+    newDebitList.push(newDebit)
+    this.setState({debits: newDebitList})
+  }
+  addCreditToCreditList = (newCredit) => {
+    const newCreditList = [...this.state.credits]
+    newCreditList.push(newCredit)
+    this.setState({credits: newCreditList})
+  }
   componentWillMount() {
       this.getDebits()
       this.getCredits()
@@ -85,7 +96,7 @@ class App extends Component {
     }
     const debitsWrapper = () => {
       return (<DebitView 
-        
+        addDebitToDebitList={this.addDebitToDebitList}
         getCredits={this.getCredits}
         getDebits={this.getDebits}
         saveSomething={this.saveSomething}
@@ -95,7 +106,8 @@ class App extends Component {
         credits={this.state.credits}/>)
     }
     const creditsWrapper = () => {
-      return (<CreditView 
+      return (<CreditView
+        addCreditToCreditList={this.addCreditToCreditList}
         getCredits={this.getCredits}
         getDebits={this.getDebits}
         saveSomething={this.saveSomething}
