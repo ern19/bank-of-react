@@ -4,6 +4,7 @@ import Home from './components/Home';
 import AccountBalance from "./components/AccountBalance"
 import UserProfile from "./components/UserProfile"
 import DebitView from  "./components/DebitView"
+import CreditView from "./components/CreditView"
 import axios from "axios"
 class App extends Component {
   state = {
@@ -93,6 +94,16 @@ class App extends Component {
         debits={this.state.debits}
         credits={this.state.credits}/>)
     }
+    const creditsWrapper = () => {
+      return (<CreditView 
+        getCredits={this.getCredits}
+        getDebits={this.getDebits}
+        saveSomething={this.saveSomething}
+        totalCredits={this.state.totalCredits}
+        totalDebits={this.state.totalDebits}
+        debits={this.state.debits}
+        credits={this.state.credits}/>)
+    }
     return (
       <Router>
           <Switch>
@@ -100,8 +111,9 @@ class App extends Component {
             <Route exact path="/account" render={accountBalanceWrapper} />
             <Route exact path="/user" render={userProfileWrapper}/>
             <Route exact path="/account/debits" render={debitsWrapper}/>
+            <Route exact path="/account/credits" render={creditsWrapper}/>
           </Switch>
-        </Router>
+      </Router>
     );
   }
 }

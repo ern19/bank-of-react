@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import DebitsList from "./DebitsList"
+import CreditsList from "./CreditsList"
 import AccountBalance from "./AccountBalance"
-class DebitView extends Component {
+
+class CreditView extends Component {
     render() {
         return (
             <div>
-                <h1>Debits</h1>
-                <DebitsList   
+                <h1>Credits</h1>
+                <CreditsList   
         getCredits={this.getCredits}
         getDebits={this.getDebits}
         saveSomething={this.saveSomething}
@@ -20,4 +21,4 @@ class DebitView extends Component {
     }
 }
 
-export default DebitView;
+export default CreditView;
